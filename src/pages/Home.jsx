@@ -1,7 +1,15 @@
 import React from 'react'
+import TaskList from '../components/TaskList';
+import context from '../context';
 
 const Home = () => {
-  const [task, setTask] = React.useState(' ');
+  const { addItem } = React.useContext(context);
+  const [task, setTask] = React.useState({task: '', id: ''});
+
+  const addTask = () => {
+    addItem(task)
+    setTask({task: '', id: ''})
+  }
 
   return (
     <>
@@ -10,12 +18,13 @@ const Home = () => {
         <div>
           <input
             type="text"
-            value={task}
-            onChange={e => setTask(e.target.value)}
+            value={task.task}
+            onChange={e => setTask({ task: e.target.value, id: Date.now() })}
           />
-          <button type="button" className="btn">Add task</button>
+          <button type="button" className="btn" onClick={ addTask }>Add task</button>
         </div>
       </div>
+      <TaskList />
     </>
   )
 }
