@@ -1,11 +1,12 @@
 import './App.css';
+import GloblalContext from './context/GloblalContext';
+import Home from './pages/Home';
 
 function App() {
   return (
-    <div className="App">
-      To-do List
-      {console.log(window.getlocation)}
-    </div>
+    <GloblalContext>
+      <Home />
+    </GloblalContext>
   );
 }
 

@@ -1,10 +1,11 @@
-const Input = ({ id, label, setValue, ...props }) => {
+const Input = ({ id, label, setValue, value, ...props }) => {
   return (
     <>
-      <label htmlFor={id}>{label}</label>
+      <label htmlFor={ id }>{ label }</label>
       <input
-        id={id}
-        name={id}
+        id={ id }
+        name={ id }
+        value={ value }
         onChange={({ target }) => setValue(target.value)}
         {...props}
       />

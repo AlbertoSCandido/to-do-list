@@ -1,15 +1,13 @@
 import React from 'react';
 import context from './context';
 
-const GloblalContext = (children) => {
+const GloblalContext = ({ children }) => {
   const [list, setList] = React.useState([]);
-  const Global = React.useContext(context);
-
 
   return (
-    <Global.Provider value={list}>
-      {...children}
-    </Global.Provider>
+    <context.Provider value={list}>
+      {children}
+    </context.Provider>
   )
 }
 
