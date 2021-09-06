@@ -26,7 +26,8 @@ const TaskList = () => {
 
 
   return (
-    <ul className='taskList'>
+    <div className='taskList'>
+      <h3>{list.length} tasks {list.length - doneTasks.length} remain</h3>
       { list.map(({ id, task }) => {
         return taskId === id ? (
           <>
@@ -36,9 +37,10 @@ const TaskList = () => {
               onChange={(e) => setTaskText(e.target.value)}
             />
             <button onClick={ updateTask }>Save</button>
+            <button onClick={() => {setTaskId(null)}}>Cancel</button>
           </>
         ) : (
-          <li
+          <div
             key={id}
             className={ `${id === selectedTask ? 'selected' : ''} ${doneTasks.includes(id) ? 'doneTask': ''}` }
             onClick={() => { selectedTask === id ? setSelectedTask(null) : setSelectedTask(id) }}
@@ -46,12 +48,12 @@ const TaskList = () => {
             {task}
             <button type="button" onClick={() => { setTaskId(id); setTaskText(task) } }>Edit</button>
             <button type="button" onClick={() => { setList(list.filter((task) => task.id !== id)) }}>Delete</button>
-          </li>
+          </div>
         )
       }
       ) }
 
-    </ul>
+    </div>
   )
 }
 

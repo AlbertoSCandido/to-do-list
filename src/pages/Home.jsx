@@ -28,9 +28,11 @@ const Home = () => {
           />
           <button type="button" className="btn" onClick={ addTask }>Add task</button>
         </div>
+        <div>
         <button type="button" className="btn" onClick={ changeDoneTask}>Finish / Unfinish</button>
         <button type="button" className="btn" onClick={ deleteDoneTasks }>Remove Done Tasks</button>
         <button type="button" className="btn" onClick={ deleteAllTasks }>Clear Tasks</button>
+        </div>
       </div>
       <TaskList />
     </div>

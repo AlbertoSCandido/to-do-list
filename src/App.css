@@ -1,9 +1,10 @@
 .app {
+  min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   background-color: #F77A93;
 }
 
@@ -24,9 +25,13 @@ li {
 }
 
 .taskList {
+  margin: 20px;
   min-width: 300px;
-  width: fit-content;
+  width: 80%;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 20px;
   min-height: 300px;
+  box-shadow: -1px -1px 61px -8px rgba(0,0,0,0.58);
+  -webkit-box-shadow: -1px -1px 61px -8px rgba(0,0,0,0.58);
+  -moz-box-shadow: -1px -1px 61px -8px rgba(0,0,0,0.58);
 }
