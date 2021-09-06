@@ -4,16 +4,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
-  background-color: #F77A93;
+  background: rgb(247,122,147);
+  background: linear-gradient(90deg, rgba(247,122,147,1) 0%, rgba(234,121,130,1) 30%, rgba(253,146,139,1) 100%)
 }
 
-ul {
-  list-style-type: none;
-}
-
-li {
-  width: fit-content;
+.title {
+  font-size: 2rem;
+  margin: 0.2rem;
 }
 
 .selected {
@@ -34,4 +31,120 @@ li {
   box-shadow: -1px -1px 61px -8px rgba(0,0,0,0.58);
   -webkit-box-shadow: -1px -1px 61px -8px rgba(0,0,0,0.58);
   -moz-box-shadow: -1px -1px 61px -8px rgba(0,0,0,0.58);
+}
+
+.inputTask, .btn {
+  border-radius: 20px;
+  padding: 0.5rem;
+  margin: 5px;
+  border: none;
+  background-color: white;
+}
+
+.btn {
+  color: white;
+  font-weight: 600;
+}
+
+.btn-task {
+  background-color: white;
+  border-radius: 20px;
+  border: 0.5px gray solid;
+  margin-right: 5px;
+  margin-top: 2px;
+  padding: 0.5rem;
+}
+
+.danger {
+  background-color: #d9534f;
+  color: white;
+}
+
+.inputTask {
+  border: none;
+}
+
+.add-btn {
+  background-color: #40AD40;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.f-wrap {
+  flex-wrap: wrap;
+}
+
+.f-d-column {
+  flex-direction: column;
+}
+
+.j-c-center {
+  justify-content: center;
+}
+
+.a-i-center {
+  align-items: center;
+}
+
+.a-i-stretch {
+  align-items: stretch;
+}
+
+.j-c-end {
+  justify-content: flex-end;
+}
+
+.j-c-spAround {
+  justify-content: space-around;
+}
+
+.j-c-spEvenly {
+  justify-content: space-evenly;
+}
+
+.j-c-spBetween {
+  justify-content: space-between;
+}
+
+.j-c-stretch {
+  justify-content: stretch;
+}
+
+.grow-1 {
+  flex-grow: 1;
+}
+
+.grow-2 {
+  flex-grow: 2;
+}
+
+.gap-1 {
+  gap: 0.5rem;
+}
+
+.gap-2 {
+  gap: 1rem;
+}
+
+.gap-3 {
+  gap: 2rem;
+}
+
+.p-0 {
+  padding: 0;
+}
+
+.p-1 {
+  padding: 0.5rem;
+}
+
+.p-2 {
+  padding: 1rem;
+}
+
+.p-y-1 {
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
 }

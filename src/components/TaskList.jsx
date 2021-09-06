@@ -27,7 +27,7 @@ const TaskList = () => {
 
   return (
     <div className='taskList'>
-      <h3>{list.length} tasks {list.length - doneTasks.length} remain</h3>
+      <h3 className="d-flex j-c-spAround a-i-center"><h2>{list.length} tasks</h2> {list.length - doneTasks.length} remain</h3>
       { list.map(({ id, task }) => {
         return taskId === id ? (
           <>
@@ -36,18 +36,22 @@ const TaskList = () => {
               value={taskText}
               onChange={(e) => setTaskText(e.target.value)}
             />
-            <button onClick={ updateTask }>Save</button>
-            <button onClick={() => {setTaskId(null)}}>Cancel</button>
+            <div>
+              <button onClick={ updateTask }>Save</button>
+              <button onClick={() => {setTaskId(null)}}>Cancel</button>
+            </div>
           </>
         ) : (
           <div
             key={id}
-            className={ `${id === selectedTask ? 'selected' : ''} ${doneTasks.includes(id) ? 'doneTask': ''}` }
+            className={ `${id === selectedTask ? 'selected' : ''} ${doneTasks.includes(id) ? 'doneTask': ''} d-flex j-c-spAround a-i-center` }
             onClick={() => { selectedTask === id ? setSelectedTask(null) : setSelectedTask(id) }}
           >
             {task}
-            <button type="button" onClick={() => { setTaskId(id); setTaskText(task) } }>Edit</button>
-            <button type="button" onClick={() => { setList(list.filter((task) => task.id !== id)) }}>Delete</button>
+            <div>
+              <button type="button" className="btn-task" onClick={() => { setTaskId(id); setTaskText(task) } }>Edit</button>
+              <button type="button" className="btn-task" onClick={() => { setList(list.filter((task) => task.id !== id)) }}>Delete</button>
+            </div>
           </div>
         )
       }
