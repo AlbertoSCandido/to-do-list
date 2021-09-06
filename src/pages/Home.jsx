@@ -3,7 +3,7 @@ import TaskList from '../components/TaskList';
 import context from '../context';
 
 const Home = () => {
-  const { addItem } = React.useContext(context);
+  const { addItem, deleteItem, changeDoneTask } = React.useContext(context);
   const [task, setTask] = React.useState({task: '', id: ''});
 
   const addTask = () => {
@@ -23,6 +23,8 @@ const Home = () => {
           />
           <button type="button" className="btn" onClick={ addTask }>Add task</button>
         </div>
+        <button type="button" className="btn" onClick={ deleteItem }>Detele task</button>
+        <button type="button" className="btn" onClick={ changeDoneTask}>Finish / Unfinish</button>
       </div>
       <TaskList />
     </>
