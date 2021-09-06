@@ -15,6 +15,16 @@ const GloblalContext = ({ children }) => {
     setSelectedTask(null);
   };
 
+  const deleteAllTasks = () => {
+    setList([]);
+    setDoneTasks([]);
+  }
+
+  const deleteDoneTasks = () => {
+    setList(list.filter(({id}) => !doneTasks.includes(id)));
+    setDoneTasks([]);
+  }
+
   const changeDoneTask = () => {
     const newDoneTasks = doneTasks.includes(selectedTask)
       ? doneTasks.filter(taskId => taskId !== selectedTask)
@@ -26,18 +36,21 @@ const GloblalContext = ({ children }) => {
   const state = {
     addItem,
     list,
+    setList,
     selectedTask,
     setSelectedTask,
     deleteItem,
     doneTasks,
     changeDoneTask,
+    deleteDoneTasks,
+    deleteAllTasks,
   };
 
   return (
     <context.Provider value={state}>
       {children}
     </context.Provider>
-  )
+  );
 }
 
 export default GloblalContext;
