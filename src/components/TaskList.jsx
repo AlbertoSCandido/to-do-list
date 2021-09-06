@@ -26,7 +26,7 @@ const TaskList = () => {
 
 
   return (
-    <ul>
+    <ul className='taskList'>
       { list.map(({ id, task }) => {
         return taskId === id ? (
           <>
@@ -45,6 +45,7 @@ const TaskList = () => {
           >
             {task}
             <button type="button" onClick={() => { setTaskId(id); setTaskText(task) } }>Edit</button>
+            <button type="button" onClick={() => { setList(list.filter((task) => task.id !== id)) }}>Delete</button>
           </li>
         )
       }

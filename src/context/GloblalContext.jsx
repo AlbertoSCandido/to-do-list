@@ -10,11 +10,6 @@ const GloblalContext = ({ children }) => {
     setList([...list, item]);
   };
 
-  const deleteItem = () => {
-    setList(list.filter(({id}) => id !== selectedTask));
-    setSelectedTask(null);
-  };
-
   const deleteAllTasks = () => {
     setList([]);
     setDoneTasks([]);
@@ -31,6 +26,7 @@ const GloblalContext = ({ children }) => {
       : [...doneTasks, selectedTask];
 
     setDoneTasks(newDoneTasks);
+    setSelectedTask(null);
   }
 
   const state = {
@@ -39,7 +35,6 @@ const GloblalContext = ({ children }) => {
     setList,
     selectedTask,
     setSelectedTask,
-    deleteItem,
     doneTasks,
     changeDoneTask,
     deleteDoneTasks,

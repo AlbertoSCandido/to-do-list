@@ -5,7 +5,6 @@ import context from '../context';
 const Home = () => {
   const { 
     addItem,
-    deleteItem,
     changeDoneTask,
     deleteDoneTasks,
     deleteAllTasks,
@@ -18,8 +17,8 @@ const Home = () => {
   }
 
   return (
-    <>
-      <div className="App">
+    <div className="app">
+      <div>
         To-do List
         <div>
           <input
@@ -29,13 +28,12 @@ const Home = () => {
           />
           <button type="button" className="btn" onClick={ addTask }>Add task</button>
         </div>
-        <button type="button" className="btn" onClick={ deleteItem }>Detele task</button>
         <button type="button" className="btn" onClick={ changeDoneTask}>Finish / Unfinish</button>
         <button type="button" className="btn" onClick={ deleteDoneTasks }>Remove Done Tasks</button>
         <button type="button" className="btn" onClick={ deleteAllTasks }>Clear Tasks</button>
       </div>
       <TaskList />
-    </>
+    </div>
   );
 }
 
