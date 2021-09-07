@@ -7,7 +7,9 @@ const GloblalContext = ({ children }) => {
   const [selectedTask, setSelectedTask] = React.useState(null);
 
   const addItem = (item) => {
-    setList([...list, item]);
+    if (item.task.trim() !== '') {
+      setList([...list, item]);
+    }
   };
 
   const deleteAllTasks = () => {

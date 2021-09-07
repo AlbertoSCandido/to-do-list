@@ -26,6 +26,7 @@ const Home = () => {
             value={task.task}
             className="inputTask"
             onChange={e => setTask({ task: e.target.value, id: Date.now() })}
+            onKeyPress={e => e.key === 'Enter' && addTask()}
           />
           <button type="button" className="btn add-btn" onClick={ addTask }>Add task</button>
         </div>
