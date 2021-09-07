@@ -7,6 +7,7 @@ const TaskList = () => {
     selectedTask,
     setSelectedTask,
     doneTasks,
+    deleteDoneTask,
   } = React.useContext(context);
 
   const [taskId, setTaskId] = React.useState(null);
@@ -53,7 +54,13 @@ const TaskList = () => {
             <p>{task}</p>
             <div className="s-c-end">
               <button type="button" className="btn-task" onClick={() => { setTaskId(id); setTaskText(task) } }>Edit</button>
-              <button type="button" className="btn-task" onClick={() => { setList(list.filter((task) => task.id !== id)) }}>Delete</button>
+              <button
+                type="button"
+                className="btn-task"
+                onClick={() => { setList(list.filter((task) => task.id !== id)); deleteDoneTask(id); }}
+              >
+                Delete
+              </button>
             </div>
           </div>
         )
