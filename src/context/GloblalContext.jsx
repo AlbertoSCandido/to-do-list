@@ -6,6 +6,23 @@ const GloblalContext = ({ children }) => {
   const [doneTasks, setDoneTasks] = React.useState([]);
   const [selectedTask, setSelectedTask] = React.useState(null);
 
+  
+  React.useEffect(() => {
+    if(localStorage.getItem('doneTasks') && localStorage.getItem('list')) {
+      setDoneTasks(JSON.parse(localStorage.getItem('doneTasks')));
+      setList(JSON.parse(localStorage.getItem('list')));
+    }
+  }, []);
+    
+  React.useEffect(() => {
+    localStorage.setItem('list', JSON.stringify(list));
+  }, [list]);
+  
+  React.useEffect(() => {
+    console.log(doneTasks);
+    localStorage.setItem('doneTasks', JSON.stringify(doneTasks));
+  }, [doneTasks]);
+
   const addItem = (item) => {
     if (item.task.trim() !== '') {
       setList([...list, item]);

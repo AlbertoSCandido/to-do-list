@@ -29,7 +29,7 @@ const TaskList = () => {
 
   return (
     <div className='taskList p-1 d-flex f-d-column'>
-      <h3 className="d-flex j-c-spAround a-i-center"><h2>{list.length} tasks</h2> {list.length - doneTasks.length} remain</h3>
+      <h3 className="d-flex j-c-spAround a-i-center"><span className="h2">{list.length} tasks</span> {list.length - doneTasks.length} remain</h3>
       { list.map(({ id, task }) => {
         return taskId === id ? (
           <div className="d-flex j-c-spBetween a-i-center m-x-2">
