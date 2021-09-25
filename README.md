@@ -3,7 +3,7 @@
 
 ## Descrição do Projeto
 
-<p>Uma lista de tarefas feita usando React e Context API.</p>
+<p>Uma lista de tarefas feita usando React e Context API coberta por testes escritos em RTL.</p>
 <h1 align="center">  <a href="https://albertoscandido.github.io/to-do-list/">🔗 Link do projeto</a>  </h1>  <p align="center">🚀 #VQV</p>
 
 
@@ -19,6 +19,7 @@
 
 ## Objetivos
 Esse projeto foi desenvolvido visando desenvolver uma lista de tarefas, utilizando duas ferramentas dentro do ecossistema React: Hooks e Context API! Nesse app é possível adicionar, finalizar e deletar tarefas em uma lista que permanece dados mesmo após recarregar a página por meio do localStorage!
+Aplicação coberta com testes usado o React Testing Library
 
 O layout é foi pensado de forma responsiva para se adaptar a diferentes telas.
 
@@ -29,6 +30,8 @@ O layout é foi pensado de forma responsiva para se adaptar a diferentes telas.
 - Hooks
 - <a href="https://pt-br.reactjs.org/docs/context.html">Context API</a>
 - Css
+- <a href="https://testing-library.com/docs/react-testing-library/intro/">React Testing Library</a>
+- Jest
 
 <br/>
 
@@ -55,7 +58,10 @@ Clone o repositório
 Após clonar o repositório é necessário rodar o seguinte comando via terminal para baixar suas dependências:
 > ``` npm install ```
 
-E para inicializar a aplicação rode o comando
+Para inicializar a aplicação rode o comando
+> ``` npm start ```
+
+e para rodar testes da aplicação use o comando
 > ``` npm start ```
 
 ## Desenvolvedor
