@@ -160,7 +160,7 @@ describe('Testa comportamentos de usuário', () => {
     expect(JSON.parse(localStorage.getItem('doneTasks')).length).toBe(0);
     expect(JSON.parse(localStorage.getItem('list')).length).toBe(2);
 
-    document.location.reload();
+    window.window.location.replace('/');
     expect(home.getByText('Terceiro')).toBeInTheDocument();
     expect(home.getByText('Quarto')).toBeInTheDocument();
   });
