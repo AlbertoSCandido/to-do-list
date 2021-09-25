@@ -81,4 +81,83 @@ describe('Testa comportamentos de usuário', () => {
 
     expect(task.parentElement).not.toHaveClass('doneTask');
   });
+
+  it('Verifica deleção de uma tarefa, tarefas concluidas e todas as tarefas', () => {
+    const home = render(<App />);
+    const input = home.getByPlaceholderText('Add a task');
+    const button = home.getByText('Add task');
+    const finishButton = home.getByText('Finish / Unfinish');
+    const removeDoneTaskButton = home.getByText('Remove Done Tasks');
+    const clearButton = home.getByText('Clear Tasks');
+
+    fireEvent.change(input, {target: {value: 'Primeiro'}});
+    fireEvent.click(button);
+
+    fireEvent.change(input, {target: {value: 'Segundo'}});
+    fireEvent.keyPress(input, {key: 'Enter', code: 13, charCode: 13});
+
+    fireEvent.change(input, {target: {value: 'Terceiro'}});
+    fireEvent.click(button);
+
+    fireEvent.change(input, {target: {value: 'Quarto'}});
+    fireEvent.click(button);
+
+    const task1 = home.getByText('Primeiro');
+    const task2 = home.getByText('Segundo');
+    const deleteTaskOneButton = home.getAllByText('Delete')[0];
+    const deleteTaskTwoButton = home.getAllByText('Delete')[1];
+    fireEvent.click(deleteTaskOneButton);
+    fireEvent.click(deleteTaskTwoButton);
+    expect(task1).not.toBeInTheDocument();
+    expect(task2).not.toBeInTheDocument();
+
+    const task3 = home.getByText('Terceiro');
+    fireEvent.click(task3);
+    fireEvent.click(finishButton);
+    fireEvent.click(removeDoneTaskButton);
+    expect(task3).not.toBeInTheDocument();
+
+    fireEvent.click(clearButton);
+    expect(home.queryByText('Primeiro')).not.toBeInTheDocument();
+    expect(home.queryByText('Segundo')).not.toBeInTheDocument();
+    expect(home.queryByText('Terceiro')).not.toBeInTheDocument();
+    expect(home.queryByText('Quarto')).not.toBeInTheDocument();
+  });
+
+  it('Verificar permanencia de dados em localStorage após recarregar página', () => {
+    const home = render(<App />);
+    const input = home.getByPlaceholderText('Add a task');
+    const button = home.getByText('Add task');
+    const finishButton = home.getByText('Finish / Unfinish');
+    const removeDoneTaskButton = home.getByText('Remove Done Tasks');
+
+    fireEvent.change(input, {target: {value: 'Primeiro'}});
+    fireEvent.click(button);
+
+    fireEvent.change(input, {target: {value: 'Segundo'}});
+    fireEvent.keyPress(input, {key: 'Enter', code: 13, charCode: 13});
+
+    fireEvent.change(input, {target: {value: 'Terceiro'}});
+    fireEvent.click(button);
+
+    fireEvent.change(input, {target: {value: 'Quarto'}});
+    fireEvent.click(button);
+
+    expect(JSON.parse(localStorage.getItem('list')).length).toBe(4);
+    expect(JSON.parse(localStorage.getItem('list'))[0].task).toBe('Primeiro');
+
+    const task1 = home.getByText('Primeiro');
+    fireEvent.click(task1);
+    fireEvent.click(finishButton);
+
+    const task2 = home.getByText('Segundo');
+    fireEvent.click(task2);
+    fireEvent.click(finishButton);
+
+    expect(JSON.parse(localStorage.getItem('doneTasks')).length).toBe(2);
+
+    fireEvent.click(removeDoneTaskButton);
+    expect(JSON.parse(localStorage.getItem('doneTasks')).length).toBe(0);
+    expect(JSON.parse(localStorage.getItem('list')).length).toBe(2);
+  });
 });
