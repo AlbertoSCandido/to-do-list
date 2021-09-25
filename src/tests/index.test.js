@@ -159,5 +159,9 @@ describe('Testa comportamentos de usuário', () => {
     fireEvent.click(removeDoneTaskButton);
     expect(JSON.parse(localStorage.getItem('doneTasks')).length).toBe(0);
     expect(JSON.parse(localStorage.getItem('list')).length).toBe(2);
+
+    document.location.reload();
+    expect(home.getByText('Terceiro')).toBeInTheDocument();
+    expect(home.getByText('Quarto')).toBeInTheDocument();
   });
 });
