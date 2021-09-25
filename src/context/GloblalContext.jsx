@@ -19,7 +19,6 @@ const GloblalContext = ({ children }) => {
   }, [list]);
   
   React.useEffect(() => {
-    console.log(doneTasks);
     localStorage.setItem('doneTasks', JSON.stringify(doneTasks));
   }, [doneTasks]);
 
